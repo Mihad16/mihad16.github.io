@@ -13,17 +13,18 @@ import {
 import { SiDjango, SiTailwindcss, SiPostgresql } from "react-icons/si";
 
 const skills = [
-  { name: "Python", icon: <FaPython color="#3776AB" /> },            // Python blue
-  { name: "Django", icon: <SiDjango color="#092E20" /> },           // Django green/dark
-  { name: "React", icon: <FaReact color="#61DAFB" /> },             // React cyan
-  { name: "Tailwind CSS", icon: <SiTailwindcss color="#38B2AC" /> },// Tailwind teal
-  { name: "PostgreSQL", icon: <SiPostgresql color="#336791" /> },   // PostgreSQL blue
-  { name: "Git & GitHub", icon: <FaGitAlt color="#F05032" /> },     // Git red-orange           // Linux yellow (Tux penguin color)
-  { name: "Backend Development", icon: <FaServer color="#6C757D" /> }, // Grey for server
-  { name: "Database Management", icon: <FaDatabase color="#f29111" /> }, // Database orange
-  { name: "JavaScript", icon: <FaJsSquare color="#F7DF1E" /> },     // JS yellow
-  { name: "HTML5", icon: <FaHtml5 color="#E34F26" /> },             // HTML5 orange-red
-  { name: "CSS3", icon: <FaCss3Alt color="#1572B6" /> },            // CSS3 blue
+  { name: "Python", icon: <FaPython color="#3776AB" /> },            
+  { name: "Django", icon: <SiDjango color="#092E20" /> },           
+  { name: "React", icon: <FaReact color="#61DAFB" /> },             
+  { name: "Tailwind CSS", icon: <SiTailwindcss color="#38B2AC" /> },
+  { name: "PostgreSQL", icon: <SiPostgresql color="#336791" /> },   
+  { name: "Git & GitHub", icon: <FaGitAlt color="#F05032" /> },     
+  { name: "Linux", icon: <FaLinux color="#FCC624" /> },             
+  { name: "Backend Development", icon: <FaServer color="#6C757D" /> }, 
+  { name: "Database Management", icon: <FaDatabase color="#f29111" /> }, 
+  { name: "JavaScript", icon: <FaJsSquare color="#F7DF1E" /> },     
+  { name: "HTML5", icon: <FaHtml5 color="#E34F26" /> },             
+  { name: "CSS3", icon: <FaCss3Alt color="#1572B6" /> },            
 ];
 
 const AboutMe = () => {
