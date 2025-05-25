@@ -2,7 +2,9 @@ import React from 'react'
 import './App.css'
 import Navbar from './Component/Navbar'
 import Hero from './Component/Hero'
-import About from './Component/About'
+import Services from './Component/ Service'
+import AboutMe from './Component/AboutMe'
+
 
 
 
@@ -12,7 +14,9 @@ function App() {
   <div>
 <Navbar/>
 <Hero/>
-<About/>
+<Services/>
+<AboutMe/>
+
   </div>
   )
 }

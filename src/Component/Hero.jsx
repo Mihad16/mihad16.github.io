@@ -1,98 +1,79 @@
-import React, { use } from 'react';
-import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin } from 'react-icons/fa'; 
+import React from 'react';
+import { FaFileAlt, FaCoffee } from 'react-icons/fa';
 
-
-
-
-function Hero() {
-  const handleEmailClick = () => {
-    window.location.href = "mailto:aboobackermihad@gmail.com";}
- 
+const HeroMinimal = () => {
   return (
-    <div className="sticky top-0 bg-gradient-to-b from-gray-900 to-gray-800 min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-12 lg:px-20 py-20 overflow-hidden">
+    <div className="min-h-screen bg-white text-gray-900 grid grid-cols-12 p-8 font-sans">
       
-      {/* Left Section - Text */}
-      <motion.div 
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: 'easeOut' }}
-        className="max-w-2xl text-center md:text-left relative z-10"
-      >
-        {/* Animated Heading */}
-        <motion.h1 
-          className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-[#F8FAFC]"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          Hi, I'm 
-          <motion.span 
-            className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent  ml-2"
-     
-          >
-            Mihad
-          </motion.span>
-        </motion.h1>
+      {/* Left Content */}
+      <div className="col-span-12 md:col-span-9 flex flex-col justify-center space-y-8 max-w-4xl mx-auto md:mx-0">
+        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+          Welcome,<br />
+          <span className="text-6xl md:text-7xl text-blue-600">
+            I’m Mihad<span className="ml-1 text-blue-400"></span>
+          </span>
+        </h1>
 
-        {/* Animated Paragraph */}
-        <motion.p 
-          className="text-[#E2E8F0] text-base sm:text-lg md:text-xl font-mono leading-relaxed mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.6 }}
-        >
-          I’m a <span className="font-bold text-[#FACC15]">Full Stack Developer</span> specializing in <span className="text-[#A5B4FC]">React</span> & <span className="text-[#FBBF24]">Django</span>. I love turning ideas into reality through clean, efficient, and scalable code.
-        </motion.p>
+        <p className="text-lg md:text-xl text-gray-700 max-w-xl leading-relaxed">
+          I am a dedicated Full Stack Developer with a strong passion for building efficient, scalable, and user-centric web applications. My expertise lies in creating seamless digital experiences that drive results and add value.
+        </p>
 
-        {/* Social Links - Centered on Small Screens */}
-        <motion.div 
-          className="flex items-center justify-center md:justify-start gap-6 mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.9 }}
-        >
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-3xl text-[#F8FAFC] hover:text-[#FACC15] transition-colors">
-            <FaGithub />
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-3xl text-[#F8FAFC] hover:text-[#0A66C2] transition-colors">
-            <FaLinkedin />
-          </a>
-        </motion.div>
-        
-        {/* Call to Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-          <motion.button 
-            className="bg-[#FACC15] text-[#1E293B] px-8 py-3 rounded-xl font-semibold text-lg shadow-lg hover:bg-[#FBBF24] transition-transform transform hover:scale-105"
-            onClick={handleEmailClick}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
+        {/* Action Links */}
+        <div className="flex flex-col sm:flex-row gap-6">
+          <a
+            href="#"
+            className="flex items-center gap-3 text-gray-900 font-medium hover:text-blue-600 transition-colors duration-300"
           >
-            Contact Me
-          </motion.button>
-      
+            <FaFileAlt className="text-xl" />
+            View My Resume<span className="text-blue-600 ml-1"></span>
+          </a>
+
+          <a
+            href="#"
+            className="flex items-center gap-3 text-gray-900 font-medium hover:text-blue-600 transition-colors duration-300"
+          >
+            <FaCoffee className="text-xl" />
+            Let’s Connect
+          </a>
         </div>
-      </motion.div>
 
-      {/* Right Section - Profile Image */}
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
-        className="mt-10 md:mt-0 md:ml-10"
-      >
-        <img 
-          // Replace with your image URL
-          alt="Profile"
-          className="w-64 md:w-80 lg:w-96 rounded-full shadow-2xl border-4 border-[#FACC15]"
-        />
-      </motion.div>
-    
+        {/* Notes */}
+        <div className="text-sm text-gray-500 pt-8 space-y-2 max-w-md">
+          <p>
+            <span className="text-blue-600"></span> Available for freelance, internships, and collaborative projects.
+          </p>
+          <p>
+            <span className="text-blue-600"></span> Interested in my portfolio? Feel free to ask.
+          </p>
+        </div>
+      </div>
+
+      {/* Social Links */}
+      <div className="hidden md:flex flex-col col-span-3 items-center justify-center gap-40 space-y-8 text-gray-400 text-sm tracking-widest">
+        <a
+          href="#"
+          className="rotate-90 hover:text-blue-600 transition-colors duration-300"
+          aria-label="LinkedIn"
+        >
+          LINKEDIN
+        </a>
+        <a
+          href="#"
+          className="rotate-90 hover:text-blue-600 transition-colors duration-300"
+          aria-label="Dribbble"
+        >
+          DRIBBBLE
+        </a>
+        <a
+          href="#"
+          className="rotate-90 hover:text-blue-600 transition-colors duration-300"
+          aria-label="Twitter"
+        >
+          TWITTER
+        </a>
+      </div>
     </div>
   );
-}
+};
 
-export default Hero;
+export default HeroMinimal;

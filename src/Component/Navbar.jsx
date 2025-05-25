@@ -27,7 +27,10 @@ function Navbar() {
         <ul className="hidden md:flex space-x-8 text-gray-700">
           {menuItems.map((item) => (
             <li key={item.name}>
-              <a href={item.href} className="hover:text-blue-600 duration-200">
+              <a
+                href={item.href}
+                className="hover:text-blue-600 transition-colors duration-300"
+              >
                 {item.name}
               </a>
             </li>
@@ -38,6 +41,7 @@ function Navbar() {
         <button
           className="md:hidden text-gray-700 focus:outline-none"
           onClick={toggleMenu}
+          aria-label="Toggle Menu"
         >
           <svg
             className="w-6 h-6"
@@ -66,12 +70,12 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <ul className="md:hidden mt-4 space-y-4 px-4 text-gray-700 bg-white rounded-lg shadow-md">
+        <ul className="md:hidden mt-4 space-y-4 px-6 py-4 bg-white rounded-lg shadow-lg max-w-md mx-auto font-medium text-gray-700 border border-gray-200">
           {menuItems.map((item) => (
             <li key={item.name}>
               <a
                 href={item.href}
-                className="block py-2 px-2 hover:text-blue-600 duration-200"
+                className="block py-2 px-4 rounded-md hover:bg-blue-50 hover:text-blue-600 transition-colors duration-300"
                 onClick={closeMenu}
               >
                 {item.name}
