@@ -2,8 +2,8 @@ import React from 'react'
 import './App.css'
 import Navbar from './Component/Navbar'
 import Hero from './Component/Hero'
-import Services from './Component/ Service'
 import AboutMe from './Component/AboutMe'
+import Contact from './Component/Contact'
 
 
 
@@ -14,8 +14,10 @@ function App() {
   <div>
 <Navbar/>
 <Hero/>
-<Services/>
+
 <AboutMe/>
+
+<Contact/>
 
   </div>
   )

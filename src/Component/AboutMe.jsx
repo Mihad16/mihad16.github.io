@@ -1,37 +1,62 @@
 import React from "react";
+import {
+  FaPython,
+  FaReact,
+  FaGitAlt,
+  FaLinux,
+  FaDatabase,
+  FaServer,
+  FaJsSquare,
+  FaHtml5,
+  FaCss3Alt,
+} from "react-icons/fa";
+import { SiDjango, SiTailwindcss, SiPostgresql } from "react-icons/si";
+
+const skills = [
+  { name: "Python", icon: <FaPython color="#3776AB" /> },            // Python blue
+  { name: "Django", icon: <SiDjango color="#092E20" /> },           // Django green/dark
+  { name: "React", icon: <FaReact color="#61DAFB" /> },             // React cyan
+  { name: "Tailwind CSS", icon: <SiTailwindcss color="#38B2AC" /> },// Tailwind teal
+  { name: "PostgreSQL", icon: <SiPostgresql color="#336791" /> },   // PostgreSQL blue
+  { name: "Git & GitHub", icon: <FaGitAlt color="#F05032" /> },     // Git red-orange           // Linux yellow (Tux penguin color)
+  { name: "Backend Development", icon: <FaServer color="#6C757D" /> }, // Grey for server
+  { name: "Database Management", icon: <FaDatabase color="#f29111" /> }, // Database orange
+  { name: "JavaScript", icon: <FaJsSquare color="#F7DF1E" /> },     // JS yellow
+  { name: "HTML5", icon: <FaHtml5 color="#E34F26" /> },             // HTML5 orange-red
+  { name: "CSS3", icon: <FaCss3Alt color="#1572B6" /> },            // CSS3 blue
+];
 
 const AboutMe = () => {
   return (
-    <section id="about" className="bg-white text-gray-900 py-20 px-6">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10">
+    <section id="about" className="min-h-screen bg-white text-gray-900 px-8 py-20 font-sans">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
         
-        {/* Left: About Text */}
-        <div className="md:col-span-7 flex flex-col justify-center space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-600">About Me</h2>
-          <p className="text-lg text-gray-700 leading-relaxed">
-            I'm a passionate Full Stack Developer focused on crafting modern,
-            responsive web applications. My approach blends clean code, thoughtful
-            design, and a strong understanding of both frontend and backend technologies.
+        {/* Left Content: About Text */}
+        <div className="col-span-12 md:col-span-7 flex flex-col justify-center space-y-8 max-w-3xl mx-auto md:mx-0">
+          <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-blue-600">
+            About Me
+          </h2>
+          <p className="text-lg md:text-xl leading-relaxed max-w-xl text-gray-700">
+            I'm a dedicated Full Stack Developer specializing in Python and Django,
+            building robust backend systems and clean, interactive frontend applications.
           </p>
-          <p className="text-gray-600">
-            With experience in JavaScript, React, Tailwind CSS, and Python,
-            I enjoy building everything from landing pages to full web apps.
+          <p className="text-md md:text-lg text-gray-600 max-w-xl">
+            I am proficient in React for frontend, Tailwind CSS for styling, and have strong
+            experience with PostgreSQL and Linux environments. I focus on writing efficient,
+            maintainable code with a passion for continuous learning and problem-solving.
           </p>
         </div>
 
-        {/* Right: Skills List */}
-        <div className="md:col-span-5 flex flex-col justify-center space-y-3">
-          <h3 className="text-xl font-semibold text-gray-800">Skills & Tools</h3>
-          <ul className="grid grid-cols-2 gap-3 text-gray-700 text-sm">
-            <li>✅ HTML5</li>
-            <li>✅ CSS3</li>
-            <li>✅ JavaScript</li>
-            <li>✅ React</li>
-            <li>✅ Tailwind CSS</li>
-            <li>✅ Python</li>
-            <li>✅ Git & GitHub</li>
-            <li>✅ Responsive Design</li>
-          </ul>
+        {/* Right Content: Skills Icons */}
+        <div className="col-span-12 md:col-span-5 grid grid-cols-3 sm:grid-cols-3 gap-8 text-center max-w-md mx-auto md:mx-0">
+          {skills.map((skill) => (
+            <div key={skill.name} className="flex flex-col items-center space-y-3 cursor-default">
+              <div className="text-5xl hover:opacity-80 transition-opacity duration-300">
+                {skill.icon}
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900">{skill.name}</h3>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -20,7 +20,7 @@ function Navbar() {
         {/* Logo */}
         <a href="#" className="text-xl flex items-center gap-2">
           <img src={logo} alt="Logo" className="h-10 w-auto rounded-md" />
-          <span className="text-lg font-semibold text-gray-800">MyBrand</span>
+          <span className="text-lg font-semibold text-gray-800"></span>
         </a>
 
         {/* Desktop Menu */}
