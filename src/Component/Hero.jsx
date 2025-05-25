@@ -4,6 +4,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 
 
+
 function Hero() {
   const handleEmailClick = () => {
     window.location.href = "mailto:aboobackermihad@gmail.com";}
@@ -89,6 +90,7 @@ function Hero() {
           className="w-64 md:w-80 lg:w-96 rounded-full shadow-2xl border-4 border-[#FACC15]"
         />
       </motion.div>
+    
     </div>
   );
 }
