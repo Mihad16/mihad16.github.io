@@ -4,7 +4,7 @@ import { Typewriter } from 'react-simple-typewriter';
 
 const Hero = () => {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-200 bg-cover bg-center flex items-center justify-center px-6 py-12 font-sans">
+    <section className="min-h-screen bg-fixed bg-gradient-to-br from-blue-100 via-white to-blue-200 bg-cover bg-center flex items-center justify-center px-6  font-sans">
 
       {/* Glass Blur Card */}
       <div className="w-full max-w-4xl backdrop-blur-md border border-white/30 rounded-2xl px-8 py-14 space-y-10 text-gray-900">
