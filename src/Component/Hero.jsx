@@ -37,7 +37,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen bg-black bg-cover bg-center flex items-center justify-center px-6 py-12 font-sans">
+    <section id="home" className="min-h-screen bg-black bg-cover bg-center flex items-center justify-center px-6 py-12 pt-24 md:pt-28 font-sans">
 
       {/* Glass Blur Card */}
       <motion.div 
@@ -73,6 +73,15 @@ const Hero = () => {
             />
           </motion.span>
         </motion.h1>
+
+        {/* Intro paragraph for mobile/overall readability */}
+        <motion.p
+          className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl"
+          variants={itemVariants}
+        >
+          Passionate self‑taught Full Stack Developer with 1.5+ years building clean,
+          efficient, and user‑friendly web applications.
+        </motion.p>
 
         {/* Buttons */}
         <motion.div 

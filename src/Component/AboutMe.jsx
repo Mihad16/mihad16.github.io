@@ -59,7 +59,7 @@ const AboutMe = () => {
   };
 
   return (
-    <section ref={ref} id="about" className="min-h-screen bg-black text-white py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <section ref={ref} id="about" className="min-h-screen bg-black text-white py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 scroll-mt-24 md:scroll-mt-28">
       <div className="max-w-7xl mx-auto">
         
         {/* Header Section with Profile and Introduction */}
@@ -291,7 +291,7 @@ Passionate Self-taught Full Stack Developer with 1.5 years of experience craftin
 
   <div className="space-y-4">
     {/* Bachelor Degree */}
-    <div className="flex justify-between items-start">
+    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
   <div>
     <h3 className="text-lg font-semibold">Kuniya College of Management and Technology</h3>
     <p className="text-gray-400">BCA – Computer Science</p>
@@ -306,7 +306,7 @@ Passionate Self-taught Full Stack Developer with 1.5 years of experience craftin
 
 
     {/* Self Learning */}
-    <div className="flex justify-between items-start">
+    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
       <div>
         <h3 className="text-lg font-semibold">Self Learning</h3>
         <p className="text-gray-400">Full Stack Web Development</p>
@@ -319,7 +319,7 @@ Passionate Self-taught Full Stack Developer with 1.5 years of experience craftin
     </div>
 
     {/* High School */}
-    <div className="flex justify-between items-start">
+    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
       <div>
         <h3 className="text-lg font-semibold">Higher Secondary School</h3>
         <p className="text-gray-400">Science Stream</p>

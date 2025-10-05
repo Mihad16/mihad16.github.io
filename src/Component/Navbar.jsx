@@ -8,7 +8,7 @@ function Navbar() {
   const closeMenu = () => setIsOpen(false);
 
   const menuItems = [
-    { name: "Home", href: "#home" },
+    { name: "Home", href: "/" },
     { name: "About", href: "#about" },
     { name: "Contact", href: "#contact" },
   ];
@@ -55,7 +55,7 @@ function Navbar() {
       initial="hidden"
       animate="visible"
     >
-      <div className="max-w-6xl mx-auto flex justify-end items-center">
+      <div className="max-w-6xl w-full mx-auto flex justify-end items-center px-2 sm:px-0">
 
        
 
