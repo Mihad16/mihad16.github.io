@@ -99,19 +99,19 @@ const AboutMe = () => {
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 lg:mb-6"
               variants={itemVariants}
             >
-              My name is <motion.span 
+              About <motion.span 
                 className="text-blue-400"
                 animate={{ color: ["#60a5fa", "#3b82f6", "#2563eb", "#60a5fa"] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                Mihad
+                Me
               </motion.span>
             </motion.h1>
             <motion.p 
               className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-300 mb-6 sm:mb-8"
               variants={itemVariants}
             >
-Passionate Self-taught Full Stack Developer with 1.5 years of experience crafting clean, efficient, and user-friendly web applications.
+              I'm a passionate Full Stack Developer with 1.5+ years of experience in building modern web applications. My journey in web development has equipped me with a strong foundation in both frontend and backend technologies, allowing me to bring ideas to life with clean, efficient, and maintainable code.
             </motion.p>
 
             {/* Interests */}
@@ -325,7 +325,7 @@ Passionate Self-taught Full Stack Developer with 1.5 years of experience craftin
         <p className="text-gray-400">Science Stream</p>
         <p className="text-sm text-gray-500">AMBEDKAR VIDYANIKETHAN HSS PERIYA, Kerala, India</p>
       </div>
-      <span className="text-sm text-gray-500">Completed – 2022</span>
+      <span className="text-sm text-gray-500">Completed – 2021</span>
     </div>
   </div>
 </div>
@@ -382,33 +382,17 @@ Passionate Self-taught Full Stack Developer with 1.5 years of experience craftin
   </div>
 </div>
 
-            {/* Contact Details */}
-            <div className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800">
-              <h2 className="text-2xl font-bold mb-6 text-blue-400">Details</h2>
-              
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-xs font-bold">M</span>
-                  </div>
-                  <span className="text-gray-300">Mihad</span>
-                </div>
-                
-                <div className="flex items-center">
-                  <FaEnvelope className="text-blue-400 mr-3" />
-                  <span className="text-gray-300">mihadbornio@me.com</span>
-                </div>
-                
-                <div className="flex items-center">
-                  <FaPhone className="text-blue-400 mr-3" />
-                  <span className="text-gray-300">+91 9605111666</span>
-                </div>
-                
-                <div className="flex items-center">
-                  <FaGlobe className="text-blue-400 mr-3" />
-                  <span className="text-gray-300">india</span>
-                </div>
-              </div>
+            {/* Contact CTA */}
+            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 border border-gray-800">
+              <h2 className="text-2xl font-bold mb-4 text-blue-400">Let's Work Together</h2>
+              <p className="text-gray-300 mb-6">Have a project in mind or want to discuss opportunities? I'd love to hear from you!</p>
+              <a 
+                href="#contact" 
+                className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors"
+              >
+                <FaEnvelope />
+                Get In Touch
+              </a>
             </div>
           </div>
         </div>
