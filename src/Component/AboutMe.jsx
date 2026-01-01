@@ -1,401 +1,457 @@
 import React from "react";
-import { FaGamepad, FaVideo, FaInstagram,   FaBook ,FaPhone, FaEnvelope, FaGlobe, FaReact, FaPython, FaJs, FaNode, FaGitAlt, FaGithub, FaLinkedin, FaTwitter, FaCode, FaDatabase, FaServer } from "react-icons/fa";
+import { FaGamepad, FaCode, FaBook, FaPython, FaJs, FaReact, FaDatabase, FaGitAlt, FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaGraduationCap, FaBriefcase, FaTools } from "react-icons/fa";
+// Import from correct react-icons packages
+import { SiTailwindcss, SiDjango, SiMysql, SiPostgresql, SiVite, SiFigma, SiPostman, SiWordpress } from "react-icons/si";
+import { DiVisualstudio } from "react-icons/di"; // VS Code from di package
+import { DiLinux } from "react-icons/di"; // Linux from di package
+import { SiHtml5 } from "react-icons/si"; // HTML5
+import { SiCss3 } from "react-icons/si"; // CSS3
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-
 
 const AboutMe = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
         staggerChildren: 0.2
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.6 }
     }
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.6 }
     },
     hover: {
       y: -5,
+      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
       transition: { duration: 0.2 }
     }
   };
 
-  const skillVariants = {
+  const skillItemVariants = {
     hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
+    visible: { 
+      opacity: 1, 
       scale: 1,
-      transition: { duration: 0.4, ease: "easeOut" }
+      transition: { duration: 0.3 }
     },
     hover: {
+      y: -3,
       scale: 1.05,
       transition: { duration: 0.2 }
     }
   };
 
+  // Skill data organized by category
+  const skills = {
+    frontend: [
+      { name: "HTML5", icon: SiHtml5, color: "bg-orange-100", textColor: "text-orange-700", iconColor: "text-orange-500" },
+      { name: "CSS3", icon: SiCss3, color: "bg-blue-100", textColor: "text-blue-700", iconColor: "text-blue-500" },
+      { name: "JavaScript", icon: FaJs, color: "bg-yellow-100", textColor: "text-yellow-700", iconColor: "text-yellow-500" },
+      { name: "React", icon: FaReact, color: "bg-cyan-100", textColor: "text-cyan-700", iconColor: "text-cyan-500" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, color: "bg-sky-100", textColor: "text-sky-700", iconColor: "text-sky-500" },
+      { name: "Vite", icon: SiVite, color: "bg-purple-100", textColor: "text-purple-700", iconColor: "text-purple-500" },
+    ],
+    backend: [
+      { name: "Python", icon: FaPython, color: "bg-blue-100", textColor: "text-blue-700", iconColor: "text-blue-500" },
+      { name: "Django", icon: SiDjango, color: "bg-green-100", textColor: "text-green-700", iconColor: "text-green-500" },
+      { name: "MySQL", icon: SiMysql, color: "bg-blue-100", textColor: "text-blue-700", iconColor: "text-blue-600" },
+      { name: "PostgreSQL", icon: SiPostgresql, color: "bg-blue-100", textColor: "text-blue-700", iconColor: "text-blue-600" },
+    ],
+    tools: [
+      { name: "Git", icon: FaGitAlt, color: "bg-orange-100", textColor: "text-orange-700", iconColor: "text-orange-500" },
+      { name: "VS Code", icon: DiVisualstudio, color: "bg-blue-100", textColor: "text-blue-700", iconColor: "text-blue-500" },
+      { name: "Figma", icon: SiFigma, color: "bg-pink-100", textColor: "text-pink-700", iconColor: "text-pink-500" },
+      { name: "Postman", icon: SiPostman, color: "bg-orange-100", textColor: "text-orange-700", iconColor: "text-orange-500" },
+      { name: "Linux", icon: DiLinux, color: "bg-yellow-100", textColor: "text-yellow-700", iconColor: "text-yellow-600" },
+      { name: "WordPress", icon: SiWordpress, color: "bg-blue-100", textColor: "text-blue-700", iconColor: "text-blue-600" },
+    ]
+  };
+
   return (
-    <section ref={ref} id="about" className="min-h-screen bg-black text-white py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 scroll-mt-24 md:scroll-mt-28">
+    <section ref={ref} id="about" className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         
-        {/* Header Section with Profile and Introduction */}
+        {/* Header Section */}
         <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-8 sm:mb-12 lg:mb-16"
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.h1 
+            className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4"
+          >
+            About <span className="text-blue-600">Me</span>
+          </motion.h1>
+          <motion.p 
+            className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto"
+          >
+            Passionate Full Stack Developer with 1.5+ years of experience building modern web applications
+          </motion.p>
+        </motion.div>
+
+        {/* Main Content Grid */}
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
           
-          {/* Profile Picture Section */}
-          <motion.div 
-            className="flex justify-center lg:justify-start order-2 lg:order-1"
-            variants={itemVariants}
-          >
-            <motion.div 
-              className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-52 lg:h-52 xl:w-56 xl:h-56 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl border-2 border-white/20 flex items-center justify-center"
-              whileHover={{ scale: 1.05, rotate: 5 }}
-              transition={{ duration: 0.3 }}
-            >
-              <motion.div 
-                className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 xl:w-48 xl:h-48 bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl flex items-center justify-center"
-                animate={{ rotate: [0, 5, -5, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <FaCode className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-blue-400" />
-              </motion.div>
-            </motion.div>
-          </motion.div>
-
-          {/* Introduction Text */}
-          <motion.div 
-            className="flex flex-col justify-center order-1 lg:order-2 text-center lg:text-left"
-            variants={itemVariants}
-          >
-            <motion.h1 
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 lg:mb-6"
-              variants={itemVariants}
-            >
-              About <motion.span 
-                className="text-blue-400"
-                animate={{ color: ["#60a5fa", "#3b82f6", "#2563eb", "#60a5fa"] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                Me
-              </motion.span>
-            </motion.h1>
-            <motion.p 
-              className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-300 mb-6 sm:mb-8"
-              variants={itemVariants}
-            >
-              I'm a passionate Full Stack Developer with 1.5+ years of experience in building modern web applications. My journey in web development has equipped me with a strong foundation in both frontend and backend technologies, allowing me to bring ideas to life with clean, efficient, and maintainable code.
-            </motion.p>
-
-            {/* Interests */}
-            <motion.div 
-              className="space-y-3 sm:space-y-4"
-              variants={itemVariants}
-            >
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-white mb-3 sm:mb-4">Interests</h3>
-              <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4">
-                <motion.div 
-                  className="flex items-center bg-gray-800/50 rounded-lg px-3 py-2 sm:px-4 sm:py-3 border border-gray-700 text-sm sm:text-base"
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(59, 130, 246, 0.1)" }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <FaGamepad className="text-blue-400 mr-2 text-sm sm:text-base" />
-                  <span>Gaming</span>
-                </motion.div>
-                <motion.div 
-                  className="flex items-center bg-gray-800/50 rounded-lg px-3 py-2 sm:px-4 sm:py-3 border border-gray-700 text-sm sm:text-base"
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(168, 85, 247, 0.1)" }}
-                  transition={{ duration: 0.2 }}
-                >
-                   <FaCode className="text-green-400 mr-2 text-sm sm:text-base" />
-                   <span>Coding</span>
-                </motion.div>
-                <motion.div 
-                  className="flex items-center bg-gray-800/50 rounded-lg px-3 py-2 sm:px-4 sm:py-3 border border-gray-700 text-sm sm:text-base"
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(34, 197, 94, 0.1)" }}
-                  transition={{ duration: 0.2 }}
-                >
-                    <FaBook className="text-yellow-400 mr-2 text-sm sm:text-base" />
-                    <span>Learning</span>
-                </motion.div>
-              </div>
-            </motion.div>
-          </motion.div>
-        </motion.div>
-
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
-          
-          {/* Left Column */}
-          <div className="space-y-6 sm:space-y-8">
+          {/* Left Column - Profile & Intro */}
+          <div className="lg:col-span-2 space-y-8">
             
-            {/* Experience Section */}
-            <div className="bg-gray-900/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-800">
-  <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6 text-blue-400">
-    Experience
-  </h2>
-
-  <div className="space-y-4 sm:space-y-6">
-    {/* Freelance Experience */}
-    <div className="border-l-2 border-blue-500 pl-3 sm:pl-4">
-      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-1">
-        <div>
-          <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold">Freelance Full-Stack Developer</h3>
-          <p className="text-gray-400 text-sm sm:text-base">Self-employed · Kasaragod, Kerala, India</p>
-        </div>
-        <span className="text-xs sm:text-sm text-gray-500">Jun 2024 – Present</span>
-      </div>
-      <ul className="text-gray-300 space-y-1 text-xs sm:text-sm">
-        <li>• Built modern, responsive web apps using React, Tailwind CSS, and Framer Motion.</li>
-        <li>• Practiced full-stack flow with Django backend and MySQL database integration.</li>
-        <li>• Managed projects independently — from planning and coding to debugging and deployment.</li>
-        <li>• Used Git and GitHub for version control and workflow management.</li>
-        <li>• Focused on clean UI/UX and improving frontend performance.</li>
-      </ul>
-    </div>
-
-    {/* Learning/Practice Section */}
-    <div className="border-l-2 border-purple-500 pl-3 sm:pl-4">
-      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-1">
-        <div>
-          <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold">Self-Learning & Practice Projects</h3>
-          <p className="text-gray-400 text-sm sm:text-base">Personal Development</p>
-        </div>
-        <span className="text-xs sm:text-sm text-gray-500">2023 – 2024</span>
-      </div>
-      <ul className="text-gray-300 space-y-1 text-xs sm:text-sm">
-        <li>• Completed multiple practice-based projects to master frontend and backend concepts.</li>
-        <li>• Strengthened problem-solving and debugging skills through real-world simulations.</li>
-        <li>• Built my personal developer portfolio and project showcase website.</li>
-        <li>• Learned how to work like a professional developer — meeting goals and deadlines.</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-
-            {/* Skills Section */}
-            <div className="bg-gray-900/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-800">
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6 text-blue-400">Skills</h2>
-              
-              <div className="space-y-4 sm:space-y-6">
-                <div>
-                  <h3 className="text-base sm:text-lg lg:text-xl font-semibold mb-2 sm:mb-3 text-white">Frontend Tools</h3>
-                  <div className="flex flex-wrap gap-2 sm:gap-3">
-        <div className="bg-orange-500 text-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold">HTML</div>
-        <div className="bg-blue-500 text-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold">CSS</div>
-        <div className="bg-yellow-500 text-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold flex items-center">
-          <FaJs className="mr-1 sm:mr-2 text-xs sm:text-sm" /> JavaScript
-        </div>
-        <div className="bg-blue-600 text-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold flex items-center">
-          <FaReact className="mr-1 sm:mr-2 text-xs sm:text-sm" /> React
-        </div>
-        <div className="bg-cyan-500 text-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold">Tailwind CSS</div>
-        <div className="bg-purple-600 text-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold">Vite</div>
-      </div>
+            {/* Profile Card */}
+            <motion.div 
+              className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm"
+              variants={cardVariants}
+              whileHover="hover"
+            >
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+                {/* Profile Image */}
+                <div className="relative">
+                  <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-blue-100">
+                    <img 
+                      src="/src/assets/image1.jpeg" 
+                      alt="Mihad Choudhury"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="absolute -bottom-2 -right-2 bg-blue-600 text-white p-2 rounded-full">
+                    <FaCode className="w-5 h-5" />
+                  </div>
                 </div>
 
-                <div>
-                  <h3 className="text-base sm:text-lg lg:text-xl font-semibold mb-2 sm:mb-3 text-white">Backend Tools</h3>
-                  <div className="flex flex-wrap gap-2 sm:gap-3">
-        <div className="bg-blue-800 text-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold flex items-center">
-          <FaPython className="mr-1 sm:mr-2 text-xs sm:text-sm" /> Python
-        </div>
-        <div className="bg-orange-600 text-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold">Django</div>
-        <div className="bg-blue-900 text-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold flex items-center">
-          <FaDatabase className="mr-1 sm:mr-2 text-xs sm:text-sm" /> MySQL
-        </div>
-        <div className="bg-indigo-700 text-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold">PostgreSQL</div>
-      </div>
+                {/* Intro Text */}
+                <div className="flex-1">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">Mihad Choudhury</h2>
+                  <p className="text-blue-600 font-medium mb-4">Full Stack Developer</p>
+                  <p className="text-gray-600 mb-4">
+                    I specialize in building modern web applications with clean code and intuitive interfaces. 
+                    My journey in web development has equipped me with a strong foundation in both frontend and 
+                    backend technologies.
+                  </p>
+                  
+                  {/* Quick Stats */}
+                  <div className="flex flex-wrap gap-6 mb-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-gray-900">50+</div>
+                      <div className="text-sm text-gray-500">Projects</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-gray-900">1.5+</div>
+                      <div className="text-sm text-gray-500">Years Experience</div>
+                    </div>
+                  </div>
+
+                  {/* Interests */}
+                  <div className="flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">
+                      <FaGamepad className="w-4 h-4" />
+                      Gaming
+                    </span>
+                    <span className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">
+                      <FaCode className="w-4 h-4" />
+                      Coding
+                    </span>
+                    <span className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">
+                      <FaBook className="w-4 h-4" />
+                      Learning
+                    </span>
+                  </div>
                 </div>
-
-                <div>
-  <h3 className="text-base sm:text-lg lg:text-xl font-semibold mb-2 sm:mb-3 text-white">Development Tools</h3>
-  <div className="flex flex-wrap gap-2 sm:gap-3">
-
-    <div className="bg-orange-500 text-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold flex items-center">
-      <FaGitAlt className="mr-1 sm:mr-2 text-xs sm:text-sm" />
-      Git
-    </div>
-
-    <div className="bg-gray-700 text-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold">
-      GitHub
-    </div>
-
-    <div className="bg-gray-800 text-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold flex items-center">
-      <FaServer className="mr-1 sm:mr-2 text-xs sm:text-sm" />
-      Linux
-    </div>
-
-    <div className="bg-blue-700 text-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold">
-      VS Code
-    </div>
-
-    <div className="bg-pink-500 text-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold">
-      Figma
-    </div>
-
-    <div className="bg-yellow-600 text-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold">
-      Photoshop
-    </div>
-
-    <div className="bg-red-600 text-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold">
-      Postman
-    </div>
-
-
-    <div className="bg-purple-600 text-white px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold">
-      Vite
-    </div>
-
-  </div>
-</div>
-
               </div>
-            </div>
+            </motion.div>
+
+            {/* Experience Section */}
+            <motion.div 
+              className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm"
+              variants={cardVariants}
+              whileHover="hover"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                  <FaBriefcase className="w-5 h-5 text-blue-600" />
+                </div>
+                <h2 className="text-2xl font-bold text-gray-900">Experience</h2>
+              </div>
+
+              <div className="space-y-6">
+                {/* Freelance */}
+                <div className="relative pl-6 pb-6 border-l border-gray-200 last:pb-0">
+                  <div className="absolute -left-[5px] top-0 w-2 h-2 bg-blue-600 rounded-full"></div>
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900">Freelance Full-Stack Developer</h3>
+                      <p className="text-gray-500 text-sm">Self-employed · Kasaragod, Kerala</p>
+                    </div>
+                    <span className="text-sm text-gray-500 bg-blue-50 px-2 py-1 rounded">Jun 2024 – Present</span>
+                  </div>
+                  <ul className="text-gray-600 space-y-1 text-sm">
+                    <li>• Built responsive web apps using React, Tailwind CSS, and Django</li>
+                    <li>• Integrated MySQL/PostgreSQL databases</li>
+                    <li>• Managed projects from planning to deployment</li>
+                    <li>• Used Git/GitHub for version control</li>
+                  </ul>
+                </div>
+
+                {/* Self Learning */}
+                <div className="relative pl-6 pb-6 border-l border-gray-200 last:pb-0">
+                  <div className="absolute -left-[5px] top-0 w-2 h-2 bg-blue-600 rounded-full"></div>
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900">Self-Learning & Practice</h3>
+                      <p className="text-gray-500 text-sm">Personal Development</p>
+                    </div>
+                    <span className="text-sm text-gray-500 bg-blue-50 px-2 py-1 rounded">2023 – 2024</span>
+                  </div>
+                  <ul className="text-gray-600 space-y-1 text-sm">
+                    <li>• Mastered full-stack development through projects</li>
+                    <li>• Built personal portfolio and project showcase</li>
+                    <li>• Strengthened problem-solving skills</li>
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Education Section */}
+            <motion.div 
+              className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm"
+              variants={cardVariants}
+              whileHover="hover"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                  <FaGraduationCap className="w-5 h-5 text-blue-600" />
+                </div>
+                <h2 className="text-2xl font-bold text-gray-900">Education</h2>
+              </div>
+
+              <div className="space-y-6">
+                {/* College */}
+                <div className="relative pl-6 pb-6 border-l border-gray-200 last:pb-0">
+                  <div className="absolute -left-[5px] top-0 w-2 h-2 bg-blue-600 rounded-full"></div>
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900">Kuniya College of Management and Technology</h3>
+                      <p className="text-gray-500 text-sm">BCA – Computer Science</p>
+                    </div>
+                    <span className="text-sm text-gray-500 bg-blue-50 px-2 py-1 rounded">Jun 2025 – Present</span>
+                  </div>
+                  <p className="text-gray-600 text-sm">
+                    Tech Club Member – Focused on full stack development using React, Tailwind, Django, and MySQL
+                  </p>
+                </div>
+
+                {/* Self Learning */}
+                <div className="relative pl-6 border-l border-gray-200">
+                  <div className="absolute -left-[5px] top-0 w-2 h-2 bg-blue-600 rounded-full"></div>
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900">Self Learning</h3>
+                      <p className="text-gray-500 text-sm">Full Stack Web Development</p>
+                    </div>
+                    <span className="text-sm text-gray-500 bg-blue-50 px-2 py-1 rounded">2023 – 2024</span>
+                  </div>
+                  <p className="text-gray-600 text-sm">
+                    Learned full stack development through self-study and project-based learning
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </div>
 
-          {/* Right Column */}
+          {/* Right Column - Skills & Contact */}
           <div className="space-y-8">
             
-            {/* Education Section */}
-            <div className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800">
-  <h2 className="text-2xl font-bold mb-6 text-blue-400">Education</h2>
+            {/* Skills Section */}
+            <motion.div 
+              className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm"
+              variants={cardVariants}
+              whileHover="hover"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                  <FaTools className="w-5 h-5 text-blue-600" />
+                </div>
+                <h2 className="text-2xl font-bold text-gray-900">Skills & Technologies</h2>
+              </div>
 
-  <div className="space-y-4">
-    {/* Bachelor Degree */}
-    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
-  <div>
-    <h3 className="text-lg font-semibold">Kuniya College of Management and Technology</h3>
-    <p className="text-gray-400">BCA – Computer Science</p>
-    <p className="text-sm text-gray-500">Kuniya,, Kasaragod, Kerala</p>
-    <p className="text-xs text-gray-400 mt-1">
-      Tech Club Member – Participated in coding challenges and workshops. 
-      Focused on full stack development using React, Tailwind, Django, and MySQL.
-    </p>
-  </div>
-  <span className="text-sm text-gray-500">Jun 2025 – Present</span>
-</div>
+              <div className="space-y-8">
+                {/* Frontend Skills */}
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-700 mb-4 flex items-center gap-2">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    Frontend Development
+                  </h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {skills.frontend.map((skill, index) => (
+                      <motion.div
+                        key={skill.name}
+                        className={`${skill.color} rounded-lg p-3 flex flex-col items-center justify-center transition-all duration-200`}
+                        variants={skillItemVariants}
+                        initial="hidden"
+                        animate="visible"
+                        whileHover="hover"
+                        transition={{ delay: index * 0.05 }}
+                      >
+                        <skill.icon className={`w-8 h-8 ${skill.iconColor} mb-2`} />
+                        <span className={`text-xs font-medium ${skill.textColor}`}>{skill.name}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
 
+                {/* Backend Skills */}
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-700 mb-4 flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    Backend Development
+                  </h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {skills.backend.map((skill, index) => (
+                      <motion.div
+                        key={skill.name}
+                        className={`${skill.color} rounded-lg p-3 flex flex-col items-center justify-center transition-all duration-200`}
+                        variants={skillItemVariants}
+                        initial="hidden"
+                        animate="visible"
+                        whileHover="hover"
+                        transition={{ delay: index * 0.05 }}
+                      >
+                        <skill.icon className={`w-8 h-8 ${skill.iconColor} mb-2`} />
+                        <span className={`text-xs font-medium ${skill.textColor}`}>{skill.name}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
 
-    {/* Self Learning */}
-    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
-      <div>
-        <h3 className="text-lg font-semibold">Self Learning</h3>
-        <p className="text-gray-400">Full Stack Web Development</p>
-        <p className="text-sm text-gray-500">Online Courses & Personal Projects</p>
-        <p className="text-xs text-gray-400 mt-1">
-          Learned full stack development through self-study and project-based learning. Built responsive web apps using React, Tailwind CSS, Django, and PostgreSQL.
-        </p>
-      </div>
-      <span className="text-sm text-gray-500">2023 – 2024</span>
-    </div>
+                {/* Tools */}
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-700 mb-4 flex items-center gap-2">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                    Development Tools
+                  </h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {skills.tools.map((skill, index) => (
+                      <motion.div
+                        key={skill.name}
+                        className={`${skill.color} rounded-lg p-3 flex flex-col items-center justify-center transition-all duration-200`}
+                        variants={skillItemVariants}
+                        initial="hidden"
+                        animate="visible"
+                        whileHover="hover"
+                        transition={{ delay: index * 0.05 }}
+                      >
+                        <skill.icon className={`w-8 h-8 ${skill.iconColor} mb-2`} />
+                        <span className={`text-xs font-medium ${skill.textColor}`}>{skill.name}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
 
-    {/* High School */}
-    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
-      <div>
-        <h3 className="text-lg font-semibold">Higher Secondary School</h3>
-        <p className="text-gray-400">Science Stream</p>
-        <p className="text-sm text-gray-500">AMBEDKAR VIDYANIKETHAN HSS PERIYA, Kerala, India</p>
-      </div>
-      <span className="text-sm text-gray-500">Completed – 2021</span>
-    </div>
-  </div>
-</div>
-
-
-            {/* Portfolio Section */}
-            <div className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800">
-  <h2 className="text-2xl font-bold mb-6 text-blue-400">Portfolio</h2>
-
-  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-
-    {/* GitHub */}
-    <a
-      href="https://github.com/mihad16"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-gray-800 hover:bg-gray-700 transition-colors rounded-lg p-4 text-center border border-gray-700"
-    >
-      <FaGithub className="text-2xl mx-auto mb-2 text-white" />
-      <span className="text-sm text-white">GitHub</span>
-    </a>
-
-    {/* LinkedIn */}
-    <a
-      href="https://www.linkedin.com/in/aboobackermihad/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-blue-600 hover:bg-blue-700 transition-colors rounded-lg p-4 text-center"
-    >
-      <FaLinkedin className="text-2xl mx-auto mb-2 text-white" />
-      <span className="text-sm text-white">LinkedIn</span>
-    </a>
-
-    {/* Instagram */}
-    <a
-      href="https://www.instagram.com/m6.lee?igsh=NjF3bHBycjA2Zjc5"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-pink-500 hover:bg-pink-600 transition-colors rounded-lg p-4 text-center"
-    >
-      <FaInstagram className="text-2xl mx-auto mb-2 text-white" />
-      <span className="text-sm text-white">Instagram</span>
-    </a>
-
-    {/* Portfolio/Projects */}
-    <Link
-      to="/projects"
-      className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-colors rounded-lg p-4 text-center"
-    >
-      <FaCode className="text-2xl mx-auto mb-2 text-white" />
-      <span className="text-sm text-white">Projects</span>
-    </Link>
-
-  </div>
-</div>
+            {/* Portfolio Links */}
+            <motion.div 
+              className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm"
+              variants={cardVariants}
+              whileHover="hover"
+            >
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Connect</h2>
+              <div className="grid grid-cols-2 gap-3">
+                <motion.a
+                  href="https://github.com/mihad16"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center justify-center p-4 rounded-lg border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-colors group"
+                  whileHover={{ y: -2 }}
+                >
+                  <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center mb-3 group-hover:bg-gray-200 transition-colors">
+                    <FaGithub className="w-6 h-6 text-gray-700" />
+                  </div>
+                  <span className="text-sm font-medium text-gray-700">GitHub</span>
+                </motion.a>
+                <motion.a
+                  href="https://www.linkedin.com/in/aboobackermihad/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center justify-center p-4 rounded-lg border border-gray-200 hover:border-blue-500 hover:bg-blue-50 transition-colors group"
+                  whileHover={{ y: -2 }}
+                >
+                  <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mb-3 group-hover:bg-blue-200 transition-colors">
+                    <FaLinkedin className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <span className="text-sm font-medium text-gray-700">LinkedIn</span>
+                </motion.a>
+                <motion.a
+                  href="https://www.instagram.com/m6.lee"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center justify-center p-4 rounded-lg border border-gray-200 hover:border-pink-500 hover:bg-pink-50 transition-colors group"
+                  whileHover={{ y: -2 }}
+                >
+                  <div className="w-12 h-12 rounded-lg bg-pink-100 flex items-center justify-center mb-3 group-hover:bg-pink-200 transition-colors">
+                    <FaInstagram className="w-6 h-6 text-pink-600" />
+                  </div>
+                  <span className="text-sm font-medium text-gray-700">Instagram</span>
+                </motion.a>
+                <motion.div
+                  className="flex flex-col items-center justify-center p-4 rounded-lg border border-gray-200 hover:border-purple-500 hover:bg-purple-50 transition-colors group"
+                  whileHover={{ y: -2 }}
+                >
+                  <Link to="/projects" className="flex flex-col items-center">
+                    <div className="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center mb-3 group-hover:bg-purple-200 transition-colors">
+                      <FaCode className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <span className="text-sm font-medium text-gray-700">Projects</span>
+                  </Link>
+                </motion.div>
+              </div>
+            </motion.div>
 
             {/* Contact CTA */}
-            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 border border-gray-800">
-              <h2 className="text-2xl font-bold mb-4 text-blue-400">Let's Work Together</h2>
-              <p className="text-gray-300 mb-6">Have a project in mind or want to discuss opportunities? I'd love to hear from you!</p>
+            <motion.div 
+              className="bg-gradient-to-br from-blue-50 to-white rounded-2xl border border-blue-100 p-6"
+              variants={cardVariants}
+              whileHover="hover"
+            >
+              <h2 className="text-xl font-bold text-gray-900 mb-3">Let's Work Together</h2>
+              <p className="text-gray-600 mb-4">
+                Have a project in mind? I'd love to hear from you!
+              </p>
               <a 
                 href="#contact" 
-                className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors w-full group"
               >
                 <FaEnvelope />
-                Get In Touch
+                <span>Get In Touch</span>
               </a>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
