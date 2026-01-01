@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGamepad, FaCode, FaBook, FaPython, FaJs, FaReact, FaDatabase, FaGitAlt, FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaGraduationCap, FaBriefcase, FaTools } from "react-icons/fa";
+import { FaGamepad, FaCode, FaBook, FaPython, FaJs, FaReact, FaDatabase, FaGitAlt, FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaGraduationCap, FaBriefcase, FaTools, FaServer } from "react-icons/fa";
 // Import from correct react-icons packages
 import { SiTailwindcss, SiDjango, SiMysql, SiPostgresql, SiVite, SiFigma, SiPostman, SiWordpress } from "react-icons/si";
 import { DiVisualstudio } from "react-icons/di"; // VS Code from di package
@@ -10,7 +10,8 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import Services from "./Server";
+import { SiAdobephotoshop } from "react-icons/si";
+
 
 const AboutMe = () => {
   const ref = useRef(null);
@@ -80,14 +81,16 @@ const AboutMe = () => {
       { name: "MySQL", icon: SiMysql, color: "bg-blue-100", textColor: "text-blue-700", iconColor: "text-blue-600" },
       { name: "PostgreSQL", icon: SiPostgresql, color: "bg-blue-100", textColor: "text-blue-700", iconColor: "text-blue-600" },
     ],
-    tools: [
-      { name: "Git", icon: FaGitAlt, color: "bg-orange-100", textColor: "text-orange-700", iconColor: "text-orange-500" },
-      { name: "VS Code", icon: DiVisualstudio, color: "bg-blue-100", textColor: "text-blue-700", iconColor: "text-blue-500" },
-      { name: "Figma", icon: SiFigma, color: "bg-pink-100", textColor: "text-pink-700", iconColor: "text-pink-500" },
-      { name: "Postman", icon: SiPostman, color: "bg-orange-100", textColor: "text-orange-700", iconColor: "text-orange-500" },
-      { name: "Linux", icon: DiLinux, color: "bg-yellow-100", textColor: "text-yellow-700", iconColor: "text-yellow-600" },
-      { name: "WordPress", icon: SiWordpress, color: "bg-blue-100", textColor: "text-blue-700", iconColor: "text-blue-600" },
-    ]
+   tools: [
+  { name: "Git", icon: FaGitAlt, color: "bg-orange-100", textColor: "text-orange-700", iconColor: "text-orange-500" },
+  { name: "VS Code", icon: DiVisualstudio, color: "bg-blue-100", textColor: "text-blue-700", iconColor: "text-blue-500" },
+  { name: "Figma", icon: SiFigma, color: "bg-pink-100", textColor: "text-pink-700", iconColor: "text-pink-500" },
+  { name: "Postman", icon: SiPostman, color: "bg-orange-100", textColor: "text-orange-700", iconColor: "text-orange-500" },
+  { name: "Linux", icon: DiLinux, color: "bg-yellow-100", textColor: "text-yellow-700", iconColor: "text-yellow-600" },
+  { name: "WordPress", icon: SiWordpress, color: "bg-blue-100", textColor: "text-blue-700", iconColor: "text-blue-600" },
+  { name: "Photoshop", icon: SiAdobephotoshop, color: "bg-blue-100", textColor: "text-blue-700", iconColor: "text-blue-500" },
+]
+
   };
 
   return (
@@ -434,7 +437,99 @@ const AboutMe = () => {
             </motion.div>
 
             {/* Contact CTA */}
-           <Services />
+            
+          </div>
+        </motion.div>
+
+        {/* Services Section - Added at the bottom */}
+        <motion.div 
+          className="mt-16 pt-16 border-t border-gray-200"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              My <span className="text-blue-600">Services</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              What I can build for you using my technical skills
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Frontend Service */}
+            <motion.div 
+              className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm"
+              whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center">
+                  <FaCode className="w-6 h-6 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Frontend Development</h3>
+              </div>
+              <p className="text-gray-600 mb-4">
+                Responsive, interactive user interfaces built with React, JavaScript, and modern CSS frameworks.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-sm font-medium bg-blue-50 text-blue-700 px-3 py-1 rounded">React</span>
+                <span className="text-sm font-medium bg-blue-50 text-blue-700 px-3 py-1 rounded">JavaScript</span>
+                <span className="text-sm font-medium bg-blue-50 text-blue-700 px-3 py-1 rounded">Tailwind CSS</span>
+              </div>
+            </motion.div>
+
+            {/* Backend Service */}
+            <motion.div 
+              className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm"
+              whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center">
+                  <FaServer className="w-6 h-6 text-green-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Backend Development</h3>
+              </div>
+              <p className="text-gray-600 mb-4">
+                Server-side logic, APIs, and database solutions using Python/Django and SQL databases.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-sm font-medium bg-green-50 text-green-700 px-3 py-1 rounded">Django</span>
+                <span className="text-sm font-medium bg-green-50 text-green-700 px-3 py-1 rounded">Python</span>
+                <span className="text-sm font-medium bg-green-50 text-green-700 px-3 py-1 rounded">MySQL</span>
+              </div>
+            </motion.div>
+
+            {/* Full Stack Service */}
+            <motion.div 
+              className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm"
+              whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center">
+                  <FaTools className="w-6 h-6 text-orange-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">Full Stack Solutions</h3>
+              </div>
+              <p className="text-gray-600 mb-4">
+                Complete web applications from frontend to backend, database design to deployment.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-sm font-medium bg-orange-50 text-orange-700 px-3 py-1 rounded">Full Stack</span>
+                <span className="text-sm font-medium bg-orange-50 text-orange-700 px-3 py-1 rounded">Web Apps</span>
+                <span className="text-sm font-medium bg-orange-50 text-orange-700 px-3 py-1 rounded">End-to-End</span>
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="text-center mt-12">
+            <a 
+              href="#contact" 
+              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg transition-colors"
+            >
+              Start Your Project
+            </a>
           </div>
         </motion.div>
       </div>

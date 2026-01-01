@@ -6,7 +6,7 @@ import Hero from './Component/Hero'
 import AboutMe from './Component/AboutMe'
 import Contact from './Component/Contact'
 import Project from './Component/Project'
-
+import Footer from './Component/Footar'
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
         
         <Route path="/projects" element={<Project />} />
       </Routes>
+      <Footer />
     </div>
   )
 }

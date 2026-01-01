@@ -123,37 +123,14 @@ const Hero = () => {
             </motion.p>
 
             {/* Stats */}
-            <motion.div 
-              className="flex flex-wrap gap-8 pt-4"
-              variants={itemVariants}
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                  <FaCode className="w-5 h-5 text-blue-600" />
-                </div>
-                <div>
-                  <div className="text-xl font-bold text-gray-900">50+</div>
-                  <div className="text-sm text-gray-500">Projects Completed</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                  <FaPaintBrush className="w-5 h-5 text-blue-600" />
-                </div>
-                <div>
-                  <div className="text-xl font-bold text-gray-900">1.5+</div>
-                  <div className="text-sm text-gray-500">Years Experience</div>
-                </div>
-              </div>
-            </motion.div>
-
+           
             {/* CTA Buttons */}
             <motion.div 
               className="flex flex-col sm:flex-row gap-4 pt-6"
               variants={itemVariants}
             >
               <motion.a
-                href="/projects"
+                href="/Services"
                 className="group flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300"
                 variants={buttonVariants}
                 whileHover="hover"
