@@ -8,9 +8,10 @@ function Navbar() {
   const closeMenu = () => setIsOpen(false);
 
   const menuItems = [
-    { name: "Home", href: "/" },
+    { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Contact", href: "#contact" },
+    
   ];
 
   const navVariants = {
@@ -50,18 +51,16 @@ function Navbar() {
 
   return (
     <motion.nav 
-      className="fixed top-0 w-full z-50 px-6 py-4 font-medium backdrop-blur-md bg-black/80 border-b border-gray-800 shadow-md transition-all duration-300"
+      className="fixed top-0 w-full z-50 px-6 py-4 font-medium backdrop-blur-sm bg-white/90 border-b border-gray-200 shadow-sm transition-all duration-300"
       variants={navVariants}
       initial="hidden"
       animate="visible"
     >
       <div className="max-w-6xl w-full mx-auto flex justify-end items-center px-2 sm:px-0">
 
-       
-
         {/* Desktop Menu */}
         <motion.ul 
-          className="hidden md:flex space-x-8 text-white text-base tracking-wide"
+          className="hidden md:flex space-x-8 text-gray-700 text-base tracking-wide"
           variants={navVariants}
           initial="hidden"
           animate="visible"
@@ -78,8 +77,8 @@ function Navbar() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="group-hover:text-blue-400">{item.name}</span>
-                <span className="block h-0.5 max-w-0 group-hover:max-w-full transition-all duration-300 bg-blue-400"></span>
+                <span className="group-hover:text-blue-600 text-gray-900">{item.name}</span>
+                <span className="block h-0.5 max-w-0 group-hover:max-w-full transition-all duration-300 bg-blue-600"></span>
               </motion.a>
             </motion.li>
           ))}
@@ -87,7 +86,7 @@ function Navbar() {
 
         {/* Mobile Hamburger */}
         <motion.button
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden text-gray-700 focus:outline-none"
           onClick={toggleMenu}
           aria-label="Toggle Menu"
           whileHover={{ scale: 1.1 }}
@@ -123,7 +122,7 @@ function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <motion.ul 
-          className="md:hidden mt-4 space-y-4 px-6 py-6 bg-gray-900/90 backdrop-blur-lg rounded-xl shadow-xl max-w-md mx-auto font-medium text-white border border-gray-800"
+          className="md:hidden mt-4 space-y-4 px-6 py-6 bg-white/95 backdrop-blur-lg rounded-xl shadow-lg max-w-md mx-auto font-medium text-gray-900 border border-gray-200"
           variants={mobileMenuVariants}
           initial="hidden"
           animate="visible"
@@ -136,7 +135,7 @@ function Navbar() {
             >
               <motion.a
                 href={item.href}
-                className="block py-2 px-4 rounded-md hover:bg-gray-800/40 hover:text-blue-400 transition duration-300 text-base tracking-wide"
+                className="block py-2 px-4 rounded-md hover:bg-gray-100 hover:text-blue-600 transition duration-300 text-base tracking-wide"
                 onClick={closeMenu}
                 whileHover={{ scale: 1.02, x: 5 }}
                 whileTap={{ scale: 0.98 }}

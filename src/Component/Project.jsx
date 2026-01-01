@@ -1,131 +1,191 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FaGithub, FaHome, FaExternalLinkAlt,  FaArrowUp  } from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { FaGithub, FaExternalLinkAlt, FaCode, FaServer, FaMobileAlt, FaDesktop } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
-const projectlist = [
-  {
-    id: 1,
-    title: "Personal Portfolio",
-    description: "A modern, responsive portfolio website built with React, Vite, and Tailwind CSS. Features smooth animations, dark theme, and mobile-first design.",
-    image: "/src/assets/chat.jpg",
-    technologies: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com/yourusername/portfolio",
-    live: "https://your-portfolio.netlify.app",
-    category: "Web Development"
-  },
-  {
-    id: 2,
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce solution with user authentication, payment integration, and admin dashboard. Built with modern web technologies.",
-    image: "/src/assets/phone.jpg",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe"],
-    github: "https://github.com/yourusername/ecommerce",
-    live: "https://your-ecommerce.herokuapp.com",
-    category: "Full Stack"
-  },
-  {
-    id: 3,
-    title: "Chat Application",
-    description: "Real-time chat application with room creation, file sharing, and emoji reactions. Features WebSocket communication and responsive design.",
-    image: "/src/assets/styleslighting.png",
-    technologies: ["React", "Socket.io", "Node.js", "Firebase"],
-    github: "https://github.com/yourusername/chat-app",
-    live: "https://your-chat-app.netlify.app",
-    category: "Real-time App"
-  },
-  {
-    id: 4,
-    title: "Task Management App",
-    description: "A collaborative task management tool with drag-and-drop functionality, team collaboration features, and progress tracking.",
-    image: "/src/assets/Untitled_logo_1_free-file.jpg",
-    technologies: ["React", "TypeScript", "Redux", "Material-UI"],
-    github: "https://github.com/yourusername/task-manager",
-    live: "https://your-task-manager.vercel.app",
-    category: "Productivity"
-  },
-  {
-    id: 5,
-    title: "Weather Dashboard",
-    description: "Beautiful weather application with 7-day forecasts, location-based weather, and interactive maps. Built with modern APIs.",
-    image: "/src/assets/chat.jpg",
-    technologies: ["React", "OpenWeather API", "Chart.js", "CSS3"],
-    github: "https://github.com/yourusername/weather-app",
-    live: "https://your-weather-app.netlify.app",
-    category: "API Integration"
-  },
-  {
-    id: 6,
-    title: "Blog Platform",
-    description: "Content management system with markdown support, comment system, and SEO optimization. Built for content creators.",
-    image: "/src/assets/phone.jpg",
-    technologies: ["Next.js", "Prisma", "PostgreSQL", "NextAuth"],
-    github: "https://github.com/yourusername/blog-platform",
-    live: "https://your-blog-platform.vercel.app",
-    category: "CMS"
-  }
-];
+const Projects = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [filter, setFilter] = useState("all");
 
-function Project() {
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        staggerChildren: 0.2
+      }
+    }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 }
+    }
   };
 
-  // Scroll to top handler
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.6 }
+    },
+    hover: {
+      y: -8,
+      scale: 1.02,
+      boxShadow: "0 20px 40px -15px rgba(0, 0, 0, 0.1)",
+      transition: { duration: 0.3 }
+    }
   };
+
+  const projects = [
+    {
+      id: 1,
+      title: "E-Commerce Platform",
+      description: "Full-featured online store with shopping cart, user authentication, and payment integration.",
+      image: "/api/placeholder/400/250",
+      tags: ["React", "Node.js", "MongoDB", "Stripe"],
+      category: "fullstack",
+      github: "https://github.com/yourusername/ecommerce",
+      live: "https://ecommerce-demo.com",
+      icon: <FaServer className="w-5 h-5 text-blue-600" />
+    },
+    {
+      id: 2,
+      title: "Task Management App",
+      description: "Collaborative task management application with real-time updates and team features.",
+      image: "/api/placeholder/400/250",
+      tags: ["React", "Firebase", "Tailwind CSS"],
+      category: "frontend",
+      github: "https://github.com/yourusername/task-manager",
+      live: "https://taskmanager-demo.com",
+      icon: <FaDesktop className="w-5 h-5 text-green-600" />
+    },
+    {
+      id: 3,
+      title: "Weather Dashboard",
+      description: "Real-time weather dashboard with location-based forecasts and interactive maps.",
+      image: "/api/placeholder/400/250",
+      tags: ["JavaScript", "API", "Chart.js"],
+      category: "frontend",
+      github: "https://github.com/yourusername/weather-app",
+      live: "https://weather-dashboard.com",
+      icon: <FaMobileAlt className="w-5 h-5 text-purple-600" />
+    },
+    {
+      id: 4,
+      title: "Portfolio Website",
+      description: "Responsive portfolio website with smooth animations and modern design.",
+      image: "/api/placeholder/400/250",
+      tags: ["React", "Tailwind CSS", "Framer Motion"],
+      category: "frontend",
+      github: "https://github.com/yourusername/portfolio",
+      live: "https://yourportfolio.com",
+      icon: <FaCode className="w-5 h-5 text-orange-600" />
+    },
+    {
+      id: 5,
+      title: "Blog Platform",
+      description: "Content management system for blogging with rich text editor and user comments.",
+      image: "/api/placeholder/400/250",
+      tags: ["Next.js", "PostgreSQL", "Prisma"],
+      category: "fullstack",
+      github: "https://github.com/yourusername/blog-platform",
+      live: "https://blog-platform-demo.com",
+      icon: <FaServer className="w-5 h-5 text-blue-600" />
+    },
+    {
+      id: 6,
+      title: "Fitness Tracker",
+      description: "Mobile-first fitness tracking application with workout plans and progress charts.",
+      image: "/api/placeholder/400/250",
+      tags: ["React Native", "Redux", "Firebase"],
+      category: "mobile",
+      github: "https://github.com/yourusername/fitness-tracker",
+      live: "https://fitness-tracker.com",
+      icon: <FaMobileAlt className="w-5 h-5 text-teal-600" />
+    }
+  ];
+
+  const filteredProjects = filter === "all" 
+    ? projects 
+    : projects.filter(project => project.category === filter);
 
   return (
-    <section id="projects" className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white py-20 px-6 md:px-12">
+    <section ref={ref} id="projects" className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+        
+        {/* Header */}
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            My Projects
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Here are some of my recent projects that showcase my skills in web development, 
-            full-stack applications, and modern technologies.
-          </p>
+          <motion.h1 
+            className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4"
+          >
+            My <span className="text-blue-600">Projects</span>
+          </motion.h1>
+          <motion.p 
+            className="text-lg text-gray-600 max-w-3xl mx-auto mb-8"
+          >
+            A collection of projects I've built to solve real-world problems and showcase my skills.
+          </motion.p>
+
+          {/* Filter Buttons */}
+          <motion.div 
+            className="flex flex-wrap justify-center gap-3 mb-8"
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
+            {["all", "frontend", "fullstack", "mobile"].map((category, index) => (
+              <motion.button
+                key={category}
+                onClick={() => setFilter(category)}
+                className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                  filter === category 
+                    ? 'bg-blue-600 text-white' 
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+              </motion.button>
+            ))}
+          </motion.div>
         </motion.div>
 
         {/* Projects Grid */}
-        <motion.div
+        <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
+          animate={isInView ? "visible" : "hidden"}
         >
-          {projectlist.map((project) => (
+          {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
-              className="bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 group"
-              variants={itemVariants}
-              whileHover={{ y: -10 }}
-              whileTap={{ scale: 0.98 }}
+              className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm"
+              variants={cardVariants}
+              whileHover="hover"
+              transition={{ delay: index * 0.1 }}
             >
               {/* Project Image */}
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-blue-600/80 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+              <div className="h-48 bg-gradient-to-br from-blue-50 to-gray-100 relative overflow-hidden">
+                <div className="absolute top-4 right-4 flex items-center gap-2">
+                  {project.icon}
+                  <span className="text-xs font-medium text-gray-700 bg-white/90 px-2 py-1 rounded-full">
                     {project.category}
                   </span>
                 </div>
@@ -133,77 +193,76 @@ function Project() {
 
               {/* Project Content */}
               <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors duration-300">
-                  {project.title}
-                </h3>
-                <p className="text-gray-300 mb-4 leading-relaxed">{project.description}</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
+                <p className="text-gray-600 mb-4">{project.description}</p>
 
-                {/* Technologies */}
+                {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="bg-gray-700/50 text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-600/50"
+                  {project.tags.map((tag) => (
+                    <span 
+                      key={tag} 
+                      className="text-xs font-medium bg-blue-50 text-blue-700 px-2 py-1 rounded"
                     >
-                      {tech}
+                      {tag}
                     </span>
                   ))}
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-4">
-                  <a
+                <div className="flex gap-3">
+                  <motion.a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-gray-700/50 hover:bg-gray-600/50 text-white px-4 py-2 rounded-lg transition-colors duration-300 border border-gray-600/50 hover:border-gray-500/50"
+                    className="flex-1 flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
                   >
-                    <FaGithub className="text-lg" />
-                    Code
-                  </a>
-                  <a
+                    <FaGithub />
+                    <span>Code</span>
+                  </motion.a>
+                  <motion.a
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-blue-600/80 hover:bg-blue-500/80 text-white px-4 py-2 rounded-lg transition-colors duration-300"
+                    className="flex-1 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
                   >
-                    <FaExternalLinkAlt className="text-sm" />
-                    Live Demo
-                  </a>
+                    <FaExternalLinkAlt />
+                    <span>Live Demo</span>
+                  </motion.a>
                 </div>
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Back to Top Button */}
-        <motion.div
-  className="flex justify-center gap-6 mt-16"
-  initial={{ opacity: 0, y: 30 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, delay: 0.5 }}
->
-  {/* Back to Home */}
-  <Link
-    to="/"
-    className="inline-flex items-center gap-2 bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
-  >
-    <FaHome />
-    Back to Home
-  </Link>
-
-  {/* Back to Top */}
-  <button
-    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-    className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
-  >
-    <FaArrowUp />
-    Back to Top
-  </button>
-</motion.div>
+        {/* Footer Note */}
+        <motion.div 
+          className="text-center mt-12 pt-8 border-t border-gray-200"
+          variants={itemVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <p className="text-gray-600">
+            Interested in seeing more? Check out my GitHub for additional projects and contributions.
+          </p>
+          <motion.a
+            href="https://github.com/mihad16"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-4 bg-gray-900 hover:bg-black text-white font-medium py-2 px-6 rounded-lg transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FaGithub />
+            <span>View GitHub Profile</span>
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );
-}
+};
 
-export default Project;
+export default Projects;

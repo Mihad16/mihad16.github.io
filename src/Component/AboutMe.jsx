@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
+import Services from "./Server";
 
 const AboutMe = () => {
   const ref = useRef(null);
@@ -433,23 +434,7 @@ const AboutMe = () => {
             </motion.div>
 
             {/* Contact CTA */}
-            <motion.div 
-              className="bg-gradient-to-br from-blue-50 to-white rounded-2xl border border-blue-100 p-6"
-              variants={cardVariants}
-              whileHover="hover"
-            >
-              <h2 className="text-xl font-bold text-gray-900 mb-3">Let's Work Together</h2>
-              <p className="text-gray-600 mb-4">
-                Have a project in mind? I'd love to hear from you!
-              </p>
-              <a 
-                href="#contact" 
-                className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors w-full group"
-              >
-                <FaEnvelope />
-                <span>Get In Touch</span>
-              </a>
-            </motion.div>
+           <Services />
           </div>
         </motion.div>
       </div>

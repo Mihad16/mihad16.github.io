@@ -1,5 +1,5 @@
 import React from "react";
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGlobe, FaGithub, FaLinkedin, FaTwitter, FaPaperPlane } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaArrowRight } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
@@ -9,37 +9,35 @@ const Contact = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
         staggerChildren: 0.2
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.6 }
     }
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.6 }
     },
     hover: {
       y: -5,
-      scale: 1.02,
+      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
       transition: { duration: 0.2 }
     }
   };
@@ -47,10 +45,11 @@ const Contact = () => {
   const buttonVariants = {
     hover: {
       scale: 1.05,
+      backgroundColor: "#2563EB",
       transition: { duration: 0.2 }
     },
     tap: {
-      scale: 0.95
+      scale: 0.98
     }
   };
 
@@ -58,121 +57,193 @@ const Contact = () => {
     <section
       ref={ref}
       id="contact"
-      className="min-h-screen bg-black text-white flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 scroll-mt-24 md:scroll-mt-28"
+      className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8 flex items-center"
     >
-      <div className="max-w-4xl mx-auto w-full">
+      <div className="max-w-6xl mx-auto w-full">
         
+        {/* Header */}
         <motion.div 
-          className="text-center mb-8 sm:mb-12 lg:mb-16"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
         >
           <motion.h2 
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-blue-400"
-            variants={itemVariants}
+            className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4"
           >
-            Contact Me
+            Get In <span className="text-blue-600">Touch</span>
           </motion.h2>
           <motion.p 
-            className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto"
-            variants={itemVariants}
+            className="text-lg text-gray-600 max-w-2xl mx-auto"
           >
-            Ready to work together? Let's discuss your project and bring your ideas to life.
+            Have a project in mind or want to discuss opportunities? I'd love to hear from you.
           </motion.p>
         </motion.div>
 
         <motion.div 
-  className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12"
-  variants={containerVariants}
-  initial="hidden"
-  animate={isInView ? "visible" : "hidden"}
->
-  {/* Contact Info */}
-  <motion.div 
-    className="bg-gray-900/50 rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-gray-800"
-    variants={cardVariants}
-    initial="hidden"
-    animate={isInView ? "visible" : "hidden"}
-    whileHover="hover"
-  >
-    <h3 className="text-xl sm:text-2xl font-bold mb-6 text-blue-400">Get In Touch</h3>
-    <div className="space-y-4 sm:space-y-6">
-      <div className="flex items-center space-x-4">
-        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
-          <FaEnvelope className="text-blue-400 text-lg sm:text-xl" />
-        </div>
-        <div>
-          <p className="text-sm sm:text-base text-gray-400">Email</p>
-          <a href="mailto:mihad@example.com" className="text-white hover:text-blue-400 transition-colors text-sm sm:text-base">
-       mihadbornio@me.com
-          </a>
-        </div>
-      </div>
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          
+          {/* Contact Information */}
+          <motion.div 
+            className="space-y-8"
+            variants={itemVariants}
+          >
+            {/* Contact Card */}
+            <motion.div 
+              className="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm"
+              variants={cardVariants}
+              whileHover="hover"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center">
+                  <FaEnvelope className="w-6 h-6 text-blue-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Contact Information</h3>
+              </div>
 
-      <div className="flex items-center space-x-4">
-        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
-          <FaPhone className="text-green-400 text-lg sm:text-xl" />
-        </div>
-        <div>
-          <p className="text-sm sm:text-base text-gray-400">Phone</p>
-          <a href="tel:+8801234567890" className="text-white hover:text-green-400 transition-colors text-sm sm:text-base">
-            +91 9605111666
-          </a>
-        </div>
-      </div>
+              <div className="space-y-6">
+                {/* Email */}
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                    <FaEnvelope className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500 mb-1">Email</p>
+                    <a 
+                      href="mailto:mihadbornio@me.com"
+                      className="text-lg text-gray-900 hover:text-blue-600 transition-colors font-medium"
+                    >
+                      mihadbornio@me.com
+                    </a>
+                    <p className="text-sm text-gray-400 mt-1">Reply within 24 hours</p>
+                  </div>
+                </div>
 
-      <div className="flex items-center space-x-4">
-        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
-          <FaMapMarkerAlt className="text-purple-400 text-lg sm:text-xl" />
-        </div>
-        <div>
-          <p className="text-sm sm:text-base text-gray-400">Location</p>
-          <p className="text-white text-sm sm:text-base">India</p>
-        </div>
-      </div>
-    </div>
-  </motion.div>
+                {/* Phone */}
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
+                    <FaPhone className="w-5 h-5 text-green-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500 mb-1">Phone</p>
+                    <a 
+                      href="tel:+919605111666"
+                      className="text-lg text-gray-900 hover:text-green-600 transition-colors font-medium"
+                    >
+                      +91 96051 11666
+                    </a>
+                    <p className="text-sm text-gray-400 mt-1">Available Mon-Fri, 9AM-6PM</p>
+                  </div>
+                </div>
 
-  {/* Quick Actions */}
-  <motion.div 
-    className="bg-gray-900/50 rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-gray-800 flex flex-col justify-center items-center"
-    variants={cardVariants}
-    whileHover="hover"
-  >
-    <h3 className="text-xl sm:text-2xl font-bold mb-6 text-blue-400">Quick Actions</h3>
-    <div className="space-y-3 w-full">
-      <a
-        href="mailto:mihadbornio@me.com"
-        className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 transition-colors rounded-lg p-3 sm:p-4 text-white font-medium w-full"
-      >
-        <FaPaperPlane className="text-lg sm:text-xl" />
-        <span className="text-sm sm:text-base">Send Email</span>
-      </a>
-      <a
-        href="tel:+919605111666"
-        className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 transition-colors rounded-lg p-3 sm:p-4 text-white font-medium w-full"
-      >
-        <FaPhone className="text-lg sm:text-xl" />
-        <span className="text-sm sm:text-base">Call Now</span>
-      </a>
-    </div>
-  </motion.div>
-</motion.div>
+                {/* Location */}
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center flex-shrink-0">
+                    <FaMapMarkerAlt className="w-5 h-5 text-purple-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500 mb-1">Location</p>
+                    <p className="text-lg text-gray-900 font-medium">India</p>
+                    <p className="text-sm text-gray-400 mt-1">Open to remote opportunities</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
 
+          {/* Quick Actions Card */}
+          <motion.div 
+            className="space-y-8"
+            variants={itemVariants}
+          >
+            <motion.div 
+              className="bg-gradient-to-br from-blue-50 to-white rounded-2xl border border-blue-100 p-8"
+              variants={cardVariants}
+              whileHover="hover"
+            >
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Quick Actions</h3>
+              <div className="space-y-4">
+                <motion.a
+                  href="mailto:mihadbornio@me.com"
+                  className="group flex items-center justify-between gap-4 bg-white border border-gray-300 hover:border-blue-500 rounded-xl p-4 transition-all"
+                  whileHover={{ x: 5 }}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center">
+                      <FaEnvelope className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-900">Send Email</p>
+                      <p className="text-sm text-gray-500">mihadbornio@me.com</p>
+                    </div>
+                  </div>
+                  <FaArrowRight className="text-gray-400 group-hover:text-blue-600 group-hover:translate-x-2 transition-all" />
+                </motion.a>
 
-        {/* Bottom Message */}
+                <motion.a
+                  href="tel:+919605111666"
+                  className="group flex items-center justify-between gap-4 bg-white border border-gray-300 hover:border-green-500 rounded-xl p-4 transition-all"
+                  whileHover={{ x: 5 }}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center">
+                      <FaPhone className="w-5 h-5 text-green-600" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-900">Call Now</p>
+                      <p className="text-sm text-gray-500">+91 96051 11666</p>
+                    </div>
+                  </div>
+                  <FaArrowRight className="text-gray-400 group-hover:text-green-600 group-hover:translate-x-2 transition-all" />
+                </motion.a>
+              </div>
+            </motion.div>
+
+            {/* Additional Info */}
+            <motion.div 
+              className="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm"
+              variants={cardVariants}
+              whileHover="hover"
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Availability</h3>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <span className="text-gray-700">Available for freelance projects</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <span className="text-gray-700">Open to full-time opportunities</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                  <span className="text-gray-700">Ready for collaborations</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                  <span className="text-gray-700">Response time: Within 24 hours</span>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+
+        {/* Footer Note */}
         <motion.div 
-          className="text-center mt-8 sm:mt-12 lg:mt-16"
+          className="text-center mt-12 pt-8 border-t border-gray-200"
           variants={itemVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <p className="text-sm sm:text-base text-gray-400">
-            Available for freelance projects, collaborations, and new opportunities.
+          <p className="text-gray-600">
+            Available for freelance projects, full-time positions, and collaborations
           </p>
-          <p className="text-xs sm:text-sm text-gray-500 mt-2">
-            Response time: Usually within 24 hours
+          <p className="text-sm text-gray-500 mt-2">
+            Let's build something amazing together
           </p>
         </motion.div>
       </div>

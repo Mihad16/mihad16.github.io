@@ -7,6 +7,7 @@ import AboutMe from './Component/AboutMe'
 import Contact from './Component/Contact'
 import Project from './Component/Project'
 
+
 function App() {
   return (
     <div>
@@ -22,6 +23,7 @@ function App() {
             </>
           )}
         />
+        
         <Route path="/projects" element={<Project />} />
       </Routes>
     </div>

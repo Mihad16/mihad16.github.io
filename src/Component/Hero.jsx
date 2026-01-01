@@ -103,7 +103,7 @@ const Hero = () => {
                 Mihad
                 <span className="text-blue-600">.</span>
                 <span className="block text-gray-700 text-3xl sm:text-4xl md:text-5xl mt-2">
-                  Choudhury
+                
                 </span>
               </motion.h1>
               
@@ -111,7 +111,7 @@ const Hero = () => {
                 className="text-xl sm:text-2xl text-gray-600 mt-6 font-semibold"
                 variants={itemVariants}
               >
-                Full Stack Developer & UI/UX Designer
+                Full Stack Developer
               </motion.h2>
             </motion.div>
 
@@ -153,7 +153,7 @@ const Hero = () => {
               variants={itemVariants}
             >
               <motion.a
-                href="#projects"
+                href="/projects"
                 className="group flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300"
                 variants={buttonVariants}
                 whileHover="hover"
