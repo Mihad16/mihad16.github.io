@@ -1,31 +1,20 @@
 import React from 'react'
 import './App.css'
-import { Routes, Route } from 'react-router-dom'
 import Navbar from './Component/Navbar'
 import Hero from './Component/Hero'
 import AboutMe from './Component/AboutMe'
+import Services from './Component/Services'
 import Contact from './Component/Contact'
-import Project from './Component/Project'
 import Footer from './Component/Footar'
 
 function App() {
   return (
-    <div>
+    <div style={{ backgroundColor: 'var(--beige)' }}>
       <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          element={(
-            <>
-              <Hero />
-              <AboutMe />
-              <Contact />
-            </>
-          )}
-        />
-        
-        <Route path="/projects" element={<Project />} />
-      </Routes>
+      <Hero />
+      <AboutMe />
+      <Services />
+      <Contact />
       <Footer />
     </div>
   )
