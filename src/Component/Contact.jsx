@@ -15,26 +15,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* LEFT — Photo + connect tag */}
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7 }}
-          >
-            <div style={{ position: 'relative', display: 'inline-block' }}>
-              <div style={{ border: '3px solid var(--ink)', width: '280px', height: '340px', overflow: 'hidden' }}>
-                <img
-                  src="/src/assets/image1.jpeg"
-                  alt="Mihad Choudhury — Connect"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', filter: 'grayscale(20%) contrast(1.05)' }}
-                />
-              </div>
-              {/* Bottom label */}
-              <div style={{ position: 'absolute', bottom: '-16px', left: '50%', transform: 'translateX(-50%)', background: 'var(--ink)', color: 'var(--beige)', padding: '0.5rem 1.5rem', fontFamily: "'Space Mono', monospace", fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
-                CONNECT WITH ME
-              </div>
-            </div>
-          </motion.div>
+
 
           {/* RIGHT — Contact info + header */}
           <motion.div
@@ -68,26 +49,26 @@ const Contact = () => {
               {/* GitHub */}
               <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                 <a
-                  href="https://github.com/mihad16"
+                  href="https://github.com/Mihad16"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover-underline"
                   style={{ fontFamily: "'Space Mono', monospace", fontSize: '0.9rem', fontWeight: 400, color: 'var(--ink)', textDecoration: 'none', display: 'block' }}
                 >
-                  @mihad16
+                  @Mihad16
                 </a>
               </motion.div>
 
               {/* LinkedIn */}
               <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                 <a
-                  href="https://www.linkedin.com/in/aboobackermihad/"
+                  href="https://www.linkedin.com/in/aboobacker-mihad-491b3a24a"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover-underline"
                   style={{ fontFamily: "'Space Mono', monospace", fontSize: '0.9rem', fontWeight: 400, color: 'var(--ink)', textDecoration: 'none', display: 'block' }}
                 >
-                  linkedin.com/in/aboobackermihad
+                  linkedin.com/in/aboobacker-mihad
                 </a>
               </motion.div>
 

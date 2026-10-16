@@ -8,7 +8,7 @@ const projects = [
     date: "2024 — ONGOING",
     stack: ["React", "Django", "PostgreSQL"],
     desc: "A full-featured management system for mosques — member records, donations, announcements, and scheduling. Full stack with REST API.",
-    github: "https://github.com/mihad16",
+    github: "https://github.com/Mihad16",
     highlight: "Full Stack Web App",
   },
   {
@@ -17,7 +17,7 @@ const projects = [
     date: "2025",
     stack: ["React", "Vite", "Framer Motion"],
     desc: "Personal portfolio deployed on GitHub Pages. Editorial design with collage layout, smooth animations, and responsive design.",
-    github: "https://github.com/mihad16",
+    github: "https://github.com/Mihad16",
     highlight: "GitHub Pages",
   },
   {
@@ -26,7 +26,7 @@ const projects = [
     date: "2024",
     stack: ["React", "Django REST", "MySQL"],
     desc: "Full stack e-commerce platform with product listings, cart management, user authentication, and order tracking.",
-    github: "https://github.com/mihad16",
+    github: "https://github.com/Mihad16",
     highlight: "Full Stack Commerce",
   },
   {
@@ -35,7 +35,7 @@ const projects = [
     date: "2023 — 2024",
     stack: ["WordPress", "PHP", "CSS"],
     desc: "Delivered 10+ custom WordPress websites for local businesses and creatives in India — e-commerce, portfolios, landing pages.",
-    github: "https://github.com/mihad16",
+    github: "https://github.com/Mihad16",
     highlight: "Client Work",
   },
 ];
@@ -85,9 +85,9 @@ const AboutMe = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          Mihad Choudhury is a freelance full stack developer with over
-          1.5 years of experience specialising in web development and
-          digital solutions for different clients and organisations.
+          Aboobacker Mihad is an aspiring full-stack developer with over
+          1.5 years of experience building web applications using React, Django,
+          and PostgreSQL — based in Kasaragod, Kerala, India.
         </motion.p>
 
         {/* Projects grid */}
@@ -151,7 +151,7 @@ const AboutMe = () => {
           transition={{ delay: 0.6 }}
         >
           <motion.a
-            href="https://github.com/mihad16"
+            href="https://github.com/Mihad16"
             target="_blank"
             rel="noopener noreferrer"
             style={{ fontFamily: "'Space Mono', monospace", fontSize: '0.72rem', fontWeight: 700, color: 'var(--ink)', border: '2px solid var(--ink)', padding: '0.7rem 2rem', display: 'inline-block', letterSpacing: '0.12em', textTransform: 'uppercase', textDecoration: 'none' }}

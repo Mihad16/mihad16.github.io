@@ -20,10 +20,10 @@ const Hero = () => {
         transition={{ delay: 0.2, duration: 0.5 }}
       >
         <p style={{ fontFamily: "'Space Mono', monospace", color: 'var(--ink-muted)', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase' }}>
-          FREELANCE
+          ASPIRING
         </p>
         <p style={{ fontFamily: "'Space Mono', monospace", color: 'var(--ink)', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', textDecoration: 'underline' }}>
-          FULL STACK DEV
+          FULL-STACK DEV
         </p>
       </motion.div>
 
@@ -51,6 +51,7 @@ const Hero = () => {
               <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(4rem, 10vw, 7rem)', fontWeight: 900, color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1 }}>
                 MIHAD
               </h1>
+              <span style={{ fontFamily: "'Space Mono', monospace", fontSize: '0.65rem', color: 'var(--ink-muted)', letterSpacing: '0.15em', textTransform: 'uppercase', alignSelf: 'flex-end', paddingBottom: '0.8rem' }}>ABOOBACKER</span>
             </motion.div>
 
             {/* Curved arrow */}
@@ -61,12 +62,13 @@ const Hero = () => {
               </svg>
             </motion.div>
 
-            {/* CHOUDHURY box */}
+            {/* ABOOBACKER box */}
             <motion.div initial={{ opacity: 0, x: 30 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.4, duration: 0.7 }}>
               <div style={{ border: '3px solid var(--ink)', padding: '0.4rem 1.2rem', display: 'inline-block', marginBottom: '1.5rem' }}>
                 <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(2rem, 5vw, 4rem)', fontWeight: 900, color: 'var(--ink)', letterSpacing: '-0.01em', lineHeight: 1 }}>
-                  CHOUDHURY
+                  ABOOBACKER
                 </h2>
+                <p style={{ fontFamily: "'Space Mono', monospace", fontSize: '0.62rem', color: 'var(--ink-muted)', letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: '0.25rem' }}>Kasaragod, Kerala, India</p>
               </div>
             </motion.div>
 
@@ -77,9 +79,9 @@ const Hero = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.6, duration: 0.6 }}
             >
-              Mihad is a freelance full stack developer with 1.5+ years of
-              experience specialising in building modern web applications using
-              React, Django, and modern design systems.
+              Aboobacker Mihad is an aspiring full-stack developer with 1.5+ years
+              of experience building modern web applications using React, Django,
+              and modern design systems — based in Kasaragod, Kerala, India.
             </motion.p>
 
             {/* Project highlights */}
@@ -155,7 +157,7 @@ const Hero = () => {
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               >
                 <div style={{ background: 'var(--ink)', color: 'var(--beige)', padding: '0.5rem 1.2rem', fontFamily: "'Space Mono', monospace", fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-                  FULL STACK DEV
+                  ASPIRING FULL-STACK DEV
                 </div>
               </motion.div>
             </div>

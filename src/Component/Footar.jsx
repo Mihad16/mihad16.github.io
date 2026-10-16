@@ -10,12 +10,12 @@ function Footer() {
 
           {/* Left */}
           <p style={{ fontFamily: "'Space Mono', monospace", fontSize: '0.7rem', color: 'var(--beige)', letterSpacing: '0.1em', opacity: 0.7 }}>
-            © {currentYear} MIHAD CHOUDHURY
+            © {currentYear} ABOOBACKER MIHAD
           </p>
 
           {/* Center */}
           <p style={{ fontFamily: "'Space Mono', monospace", fontSize: '0.7rem', color: 'var(--beige)', letterSpacing: '0.1em', opacity: 0.7 }}>
-            FREELANCE · FULL STACK DEVELOPER · INDIA
+            ASPIRING FULL-STACK DEV · KASARAGOD, INDIA
           </p>
 
           {/* Right */}
